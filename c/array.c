@@ -57,3 +57,8 @@ void carray_push(CArray *array_ptr, int item)
   *(array_ptr->data + array_ptr->size) = item;
   array_ptr->size++;
 }
+
+int carray_get(CArray *array_ptr, int index)
+{
+  return *(array_ptr->data + index);
+}

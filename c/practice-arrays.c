@@ -21,5 +21,6 @@ int main()
   printf("array_ptr size: %d\n", carray_size(array_ptr));
   printf("array_ptr capacity: %d\n", carray_capacity(array_ptr));
   printf("array_ptr is_empty: %d\n", carray_is_empty(array_ptr));
+  printf("array_ptr at index: %d\n", carray_get(array_ptr, 3));
   return 0;
 }

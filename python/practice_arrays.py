@@ -1,6 +1,7 @@
 """Python Practice Driver"""
 from array import PythonArray
 
+
 def main():
     """Main"""
     array = PythonArray()
@@ -8,6 +9,8 @@ def main():
     array.append(22)
     print array.pop()
     print array.size()
+    print array.is_empty()
+    print array[0]
 
 if __name__ == "__main__":
     main()
