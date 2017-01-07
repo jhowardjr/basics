@@ -26,4 +26,8 @@ void CPPArray::push(int item)
 int CPPArray::get_capacity() { return capacity_; }
 
 int CPPArray::get(int index) { return data_[index]; }
+
+int CPPArray::get_size() { return size_; }
+
+bool CPPArray::is_empty() { return size_ == 0; }
 }

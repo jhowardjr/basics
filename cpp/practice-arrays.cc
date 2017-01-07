@@ -8,5 +8,7 @@ int main()
   std::cout << *(array + 1) << std::endl;
   cpp::CPPArray *arr = new cpp::CPPArray(17);
   arr->push(12);
-  std::cout << arr->get_capacity() << std::endl;
+  std::cout << "CPPArray capacity: " << arr->get_capacity() << std::endl;
+  std::cout << "CPPArray size: " << arr->get_size() << std::endl;
+  std::cout << "CPPArray is_empty: " << arr->is_empty() << std::endl;
 }

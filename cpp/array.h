@@ -11,6 +11,8 @@ public:
   void push(int item);
   int get(int index);
   int get_capacity();
+  int get_size();
+  bool is_empty();
 
 private:
   int capacity_;

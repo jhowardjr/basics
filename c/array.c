@@ -25,6 +25,21 @@ CArray *carray_new(int capacity)
   return array_ptr;
 }
 
+int carray_capacity(CArray *array_ptr)
+{
+  return array_ptr->capacity;
+}
+
+int carray_size(CArray *array_ptr)
+{
+  return array_ptr->size;
+}
+
+bool carray_is_empty(CArray *array_ptr)
+{
+  return array_ptr->size == 0;
+}
+
 int carray_increase_capacity(int capacity)
 {
   int allocated_capacity = capacity;
