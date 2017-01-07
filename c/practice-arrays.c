@@ -21,6 +21,10 @@ int main()
   printf("array_ptr size: %d\n", carray_size(array_ptr));
   printf("array_ptr capacity: %d\n", carray_capacity(array_ptr));
   printf("array_ptr is_empty: %d\n", carray_is_empty(array_ptr));
-  printf("array_ptr at index: %d\n", carray_get(array_ptr, 3));
+  printf("array_ptr at index at 3: %d\n", carray_get(array_ptr, 3));
+  carray_insert(array_ptr, 3, 99);
+  printf("array_ptr at index at 3: %d\n", carray_get(array_ptr, 3));
+  printf("array_ptr at index at 4: %d\n", carray_get(array_ptr, 4));
+  printf("array_ptr at index at 17: %d\n", carray_get(array_ptr, 17));
   return 0;
 }

@@ -23,6 +23,19 @@ void CPPArray::push(int item)
   size_++;
 }
 
+void CPPArray::insert(int index, int item)
+{
+  // TODO: RESIZE ARRAY IF NECCESSARY
+
+  for (int i = size_; i > index; --i)
+  {
+    data_[i] = data_[i - 1];
+  }
+
+  data_[index] = item;
+  size_++;
+}
+
 int CPPArray::get_capacity() { return capacity_; }
 
 int CPPArray::get(int index) { return data_[index]; }

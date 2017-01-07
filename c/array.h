@@ -19,3 +19,4 @@ bool carray_is_empty(CArray *array_ptr);
 int carray_increase_capacity(int capacity);
 void carray_push(CArray *array_ptr, int item);
 int carray_get(CArray *array_ptr, int index);
+void carray_insert(CArray *array_ptr, int index, int item);

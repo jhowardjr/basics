@@ -9,6 +9,7 @@ public:
   ~CPPArray();
   CPPArray(int capacity);
   void push(int item);
+  void insert(int index, int item);
   int get(int index);
   int get_capacity();
   int get_size();
