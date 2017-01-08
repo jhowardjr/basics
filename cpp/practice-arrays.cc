@@ -14,7 +14,10 @@ int main()
   std::cout << "CPPArray size: " << arr->get_size() << std::endl;
   std::cout << "CPPArray is_empty: " << arr->is_empty() << std::endl;
   arr->insert(1, 99);
-  std::cout << "CPPArray is_empty: " << arr->get(1) << std::endl;
-  std::cout << "CPPArray is_empty: " << arr->get(2) << std::endl;
-  std::cout << "CPPArray is_empty: " << arr->get(3) << std::endl;
+  std::cout << "CPPArray index 1: " << arr->get(1) << std::endl;
+  std::cout << "CPPArray index 1: " << arr->get(2) << std::endl;
+  std::cout << "CPPArray index 1: " << arr->get(3) << std::endl;
+  arr->prepend(999);
+  std::cout << "CPPArray index 0: " << arr->get(0) << std::endl;
+  std::cout << "CPPArray pop: " << arr->pop() << std::endl;
 }

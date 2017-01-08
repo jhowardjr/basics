@@ -26,5 +26,8 @@ int main()
   printf("array_ptr at index at 3: %d\n", carray_get(array_ptr, 3));
   printf("array_ptr at index at 4: %d\n", carray_get(array_ptr, 4));
   printf("array_ptr at index at 17: %d\n", carray_get(array_ptr, 17));
+  carray_prepend(array_ptr, 999);
+  printf("array_ptr at index at 0: %d\n", carray_get(array_ptr, 0));
+  printf("array_ptr pop: %d\n", carray_pop(array_ptr));
   return 0;
 }

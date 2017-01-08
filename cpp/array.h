@@ -10,6 +10,8 @@ public:
   CPPArray(int capacity);
   void push(int item);
   void insert(int index, int item);
+  void prepend(int item);
+  int pop();
   int get(int index);
   int get_capacity();
   int get_size();

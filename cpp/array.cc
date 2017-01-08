@@ -27,13 +27,25 @@ void CPPArray::insert(int index, int item)
 {
   // TODO: RESIZE ARRAY IF NECCESSARY
 
-  for (int i = size_; i > index; --i)
+  for (int i = index; i <= size_ - 1; i++)
   {
-    data_[i] = data_[i - 1];
+    data_[size_ - i + 1] = data_[size_ - i];
   }
 
   data_[index] = item;
   size_++;
+}
+
+int CPPArray::pop()
+{
+  int value = data_[size_ - 1];
+  size_--;
+  return value;
+}
+
+void CPPArray::prepend(int item)
+{
+  insert(0, item);
 }
 
 int CPPArray::get_capacity() { return capacity_; }

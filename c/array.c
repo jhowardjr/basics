@@ -66,7 +66,7 @@ int carray_get(CArray *array_ptr, int index)
 void carray_insert(CArray *array_ptr, int index, int item)
 {
   // TODO: RESIZE ARRAY IF NECCESSARY
-  
+
   for (int i = array_ptr->size; i > index; --i)
   {
     *(array_ptr->data + i) = *(array_ptr->data + i - 1);
@@ -75,4 +75,16 @@ void carray_insert(CArray *array_ptr, int index, int item)
   *(array_ptr->data + index) = item;
 
   array_ptr->size++;
+}
+
+void carray_prepend(CArray *array_ptr, int item)
+{
+  carray_insert(array_ptr, 0, item);
+}
+
+int carray_pop(CArray *array_ptr)
+{
+  int value = *(array_ptr->data + array_ptr->size - 1);
+  array_ptr->size--;
+  return value;
 }
