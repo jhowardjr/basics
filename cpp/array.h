@@ -11,6 +11,7 @@ public:
   void push(int item);
   void insert(int index, int item);
   void prepend(int item);
+  void deleteAt(int index);
   int pop();
   int get(int index);
   int get_capacity();

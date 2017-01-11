@@ -25,20 +25,11 @@ CArray *carray_new(int capacity)
   return array_ptr;
 }
 
-int carray_capacity(CArray *array_ptr)
-{
-  return array_ptr->capacity;
-}
+int carray_capacity(CArray *array_ptr) { return array_ptr->capacity; }
 
-int carray_size(CArray *array_ptr)
-{
-  return array_ptr->size;
-}
+int carray_size(CArray *array_ptr) { return array_ptr->size; }
 
-bool carray_is_empty(CArray *array_ptr)
-{
-  return array_ptr->size == 0;
-}
+bool carray_is_empty(CArray *array_ptr) { return array_ptr->size == 0; }
 
 int carray_increase_capacity(int capacity)
 {
@@ -87,4 +78,15 @@ int carray_pop(CArray *array_ptr)
   int value = *(array_ptr->data + array_ptr->size - 1);
   array_ptr->size--;
   return value;
+}
+
+void carray_delete(CArray *array_ptr, int index)
+{
+
+  for (size_t i = index; i < array_ptr->size; ++i)
+  {
+    *(array_ptr->data + i) = *(array_ptr->data + i + 1);
+  }
+
+  array_ptr->size--;
 }

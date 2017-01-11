@@ -13,6 +13,9 @@ def main():
     array.prepend(999)
     print array[0]
     print array.pop()
+    print len(array)
+    del array[1]
+    print len(array)
 
 
 if __name__ == "__main__":

@@ -36,6 +36,15 @@ void CPPArray::insert(int index, int item)
   size_++;
 }
 
+void CPPArray::deleteAt(int index)
+{
+  for (size_t i = index; i < size_; ++i)
+  {
+    data_[i] = data_[i + 1];
+  }
+  size_--;
+}
+
 int CPPArray::pop()
 {
   int value = data_[size_ - 1];
@@ -43,10 +52,7 @@ int CPPArray::pop()
   return value;
 }
 
-void CPPArray::prepend(int item)
-{
-  insert(0, item);
-}
+void CPPArray::prepend(int item) { insert(0, item); }
 
 int CPPArray::get_capacity() { return capacity_; }
 

@@ -22,3 +22,4 @@ int carray_get(CArray *array_ptr, int index);
 void carray_insert(CArray *array_ptr, int index, int item);
 void carray_prepend(CArray *array_ptr, int item);
 int carray_pop(CArray *array_ptr);
+void carray_delete(CArray *array_ptr, int index);

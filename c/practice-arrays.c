@@ -28,6 +28,12 @@ int main()
   printf("array_ptr at index at 17: %d\n", carray_get(array_ptr, 17));
   carray_prepend(array_ptr, 999);
   printf("array_ptr at index at 0: %d\n", carray_get(array_ptr, 0));
+  printf("array_ptr size: %d\n", carray_size(array_ptr));
   printf("array_ptr pop: %d\n", carray_pop(array_ptr));
+  printf("array_ptr size: %d\n", carray_size(array_ptr));
+  printf("array_ptr at index at 2: %d\n", carray_get(array_ptr, 2));
+  carray_delete(array_ptr, 2);
+  printf("array_ptr at index at 2: %d\n", carray_get(array_ptr, 2));
+  printf("array_ptr size: %d\n", carray_size(array_ptr));
   return 0;
 }
