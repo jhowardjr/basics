@@ -90,3 +90,20 @@ void carray_delete(CArray *array_ptr, int index)
 
   array_ptr->size--;
 }
+
+void carray_remove(CArray *array_ptr, int item)
+{
+  int i = 0;
+  for (int j = 0; j < array_ptr->size; j++)
+  {
+    if (*(array_ptr->data + j) != item)
+    {
+      // COPY VALUE TO ARRAY IF IT DOESN'T EQUAL THE ITEM
+      // INCREASE THE SIZE
+      *(array_ptr->data + i++) = *(array_ptr->data + j);
+    }
+  }
+
+  //STORE THE size
+  array_ptr->size = i;
+}

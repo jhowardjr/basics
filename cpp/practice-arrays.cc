@@ -27,4 +27,17 @@ int main()
   arr->deleteAt(2);
   std::cout << "CPPArray index 2: " << arr->get(2) << std::endl;
   std::cout << "CPPArray size: " << arr->get_size() << std::endl;
+  arr->prepend(99);
+  arr->prepend(9);
+  arr->prepend(399);
+  arr->prepend(99);
+  arr->prepend(90);
+  arr->prepend(399);
+  std::cout << "CPPArray size: " << arr->get_size() << std::endl;
+  arr->remove(99);
+  std::cout << "CPPArray size: " << arr->get_size() << std::endl;
+  for (int j = 0; j < arr->get_size(); ++j)
+  {
+    std::cout << "value at index " << j << " " << arr->get(j) << std::endl;
+  }
 }

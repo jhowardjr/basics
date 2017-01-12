@@ -35,5 +35,17 @@ int main()
   carray_delete(array_ptr, 2);
   printf("array_ptr at index at 2: %d\n", carray_get(array_ptr, 2));
   printf("array_ptr size: %d\n", carray_size(array_ptr));
+  carray_prepend(array_ptr, 99);
+  carray_prepend(array_ptr, 9);
+  carray_prepend(array_ptr, 399);
+  carray_prepend(array_ptr, 99);
+  carray_prepend(array_ptr, 90);
+  printf("array_ptr size: %d\n", carray_size(array_ptr));
+  carray_remove(array_ptr, 99);
+  printf("array_ptr size: %d\n", carray_size(array_ptr));
+  for (int j = 0; j < array_ptr->size; ++j)
+  {
+    printf("value at index %d: %d\n", j, *(array_ptr->data + j));
+  }
   return 0;
 }

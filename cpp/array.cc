@@ -26,10 +26,9 @@ void CPPArray::push(int item)
 void CPPArray::insert(int index, int item)
 {
   // TODO: RESIZE ARRAY IF NECCESSARY
-
-  for (int i = index; i <= size_ - 1; i++)
+  for (int i = size_; i > index; --i)
   {
-    data_[size_ - i + 1] = data_[size_ - i];
+    data_[i] = data_[i - 1];
   }
 
   data_[index] = item;
@@ -43,6 +42,20 @@ void CPPArray::deleteAt(int index)
     data_[i] = data_[i + 1];
   }
   size_--;
+}
+
+void CPPArray::remove(int item)
+{
+  int i = 0;
+  for (size_t j = 0; j < size_; ++j)
+  {
+    if (data_[j] != item)
+    {
+      data_[i++] = data_[j];
+    }
+  }
+
+  size_ = i;
 }
 
 int CPPArray::pop()
