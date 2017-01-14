@@ -40,4 +40,7 @@ int main()
   {
     std::cout << "value at index " << j << " " << arr->get(j) << std::endl;
   }
+
+  std::cout << "Find at 9 " << arr->find(9) << std::endl;
+  std::cout << "Find at 45 " << arr->find(45) << std::endl;
 }

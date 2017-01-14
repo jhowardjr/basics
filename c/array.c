@@ -107,3 +107,19 @@ void carray_remove(CArray *array_ptr, int item)
   //STORE THE size
   array_ptr->size = i;
 }
+
+int carray_find(CArray *array_ptr, int item)
+{
+  int index = -1;
+
+  for (int i = 0; i < array_ptr->size; i++)
+  {
+    if (*(array_ptr->data + i) == item)
+    {
+      index = i;
+      break;
+    }
+  }
+
+  return index;
+}

@@ -16,6 +16,9 @@ def main():
     print len(array)
     del array[1]
     print len(array)
+    array.append(4522)
+    print array
+    print array.index(4522)
 
 
 if __name__ == "__main__":

@@ -47,5 +47,9 @@ int main()
   {
     printf("value at index %d: %d\n", j, *(array_ptr->data + j));
   }
+
+  printf("array_ptr find 9: %d\n", carray_find(array_ptr, 9));
+  printf("array_ptr find 95: %d\n", carray_find(array_ptr, 95));
+
   return 0;
 }

@@ -74,4 +74,19 @@ int CPPArray::get(int index) { return data_[index]; }
 int CPPArray::get_size() { return size_; }
 
 bool CPPArray::is_empty() { return size_ == 0; }
+
+int CPPArray::find(int item)
+{
+  int index = -1;
+  for (size_t i = 0; i < size_; ++i)
+  {
+    if (data_[i] == item)
+    {
+      index = i;
+      break;
+    }
+  }
+
+  return index;
+}
 }

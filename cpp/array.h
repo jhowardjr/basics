@@ -18,6 +18,7 @@ public:
   int get_capacity();
   int get_size();
   bool is_empty();
+  int find(int item);
 
 private:
   int capacity_;
