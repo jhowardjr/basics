@@ -43,4 +43,26 @@ int main()
 
   std::cout << "Find at 9 " << arr->find(9) << std::endl;
   std::cout << "Find at 45 " << arr->find(45) << std::endl;
+
+  for (int j = 0; j < 49; ++j)
+  {
+    arr->prepend(j);
+  }
+
+  for (int j = 0; j < arr->get_size(); ++j)
+  {
+    std::cout << "value at index " << j << " " << arr->get(j) << std::endl;
+  }
+
+  std::cout << "CPPArray capacity: " << arr->get_capacity() << std::endl;
+  std::cout << "CPPArray size: " << arr->get_size() << std::endl;
+
+  int size = arr->get_size();
+  for (int j = 0; j < size; ++j)
+  {
+    arr->pop();
+  }
+
+  std::cout << "CPPArray capacity: " << arr->get_capacity() << std::endl;
+  std::cout << "CPPArray size: " << arr->get_size() << std::endl;
 }

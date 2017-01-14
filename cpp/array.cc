@@ -11,21 +11,33 @@ CPPArray::CPPArray(int capacity)
 void CPPArray::incease_capacity(int capacity)
 {
   capacity_ = capacity;
+
   if (capacity_ > kMinCapacity)
   {
     this->capacity_ *= kGrowthFactor;
   }
 }
 
+void CPPArray::decrease_capacity(int capacity)
+{
+  int allocated_capacity = capacity;
+
+  if (capacity > kMinCapacity * kGrowthFactor)
+  {
+    this->capacity_ /= kGrowthFactor;
+  }
+}
+
 void CPPArray::push(int item)
 {
+  resize();
   data_[size_] = item;
   size_++;
 }
 
 void CPPArray::insert(int index, int item)
 {
-  // TODO: RESIZE ARRAY IF NECCESSARY
+  resize();
   for (int i = size_; i > index; --i)
   {
     data_[i] = data_[i - 1];
@@ -37,6 +49,7 @@ void CPPArray::insert(int index, int item)
 
 void CPPArray::deleteAt(int index)
 {
+  resize();
   for (size_t i = index; i < size_; ++i)
   {
     data_[i] = data_[i + 1];
@@ -46,6 +59,7 @@ void CPPArray::deleteAt(int index)
 
 void CPPArray::remove(int item)
 {
+  resize();
   int i = 0;
   for (size_t j = 0; j < size_; ++j)
   {
@@ -60,6 +74,12 @@ void CPPArray::remove(int item)
 
 int CPPArray::pop()
 {
+  if (size_ == 0)
+  {
+    return -1;
+  }
+
+  resize();
   int value = data_[size_ - 1];
   size_--;
   return value;
@@ -88,5 +108,28 @@ int CPPArray::find(int item)
   }
 
   return index;
+}
+
+void CPPArray::resize()
+{
+  int current_capacity = capacity_;
+
+  if (current_capacity == size_)
+  {
+    incease_capacity(current_capacity);
+  }
+  else if (size_ == (current_capacity / 4))
+  {
+    decrease_capacity(current_capacity);
+  }
+
+  int *new_data = new int[capacity_];
+
+  for (int i = 0; i < current_capacity; ++i)
+  {
+    new_data[i] = data_[i];
+  }
+
+  data_ = new_data;
 }
 }

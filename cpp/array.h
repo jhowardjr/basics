@@ -25,5 +25,7 @@ private:
   int size_;
   int *data_;
   void incease_capacity(int capacity);
+  void decrease_capacity(int capacity);
+  void resize();
 };
 }
