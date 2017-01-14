@@ -43,6 +43,7 @@ int main()
   printf("array_ptr size: %d\n", carray_size(array_ptr));
   carray_remove(array_ptr, 99);
   printf("array_ptr size: %d\n", carray_size(array_ptr));
+
   for (int j = 0; j < array_ptr->size; ++j)
   {
     printf("value at index %d: %d\n", j, *(array_ptr->data + j));
@@ -50,6 +51,26 @@ int main()
 
   printf("array_ptr find 9: %d\n", carray_find(array_ptr, 9));
   printf("array_ptr find 95: %d\n", carray_find(array_ptr, 95));
+  printf("array_ptr capacity: %d\n", carray_capacity(array_ptr));
+
+  for (int j = 0; j < 30; ++j)
+  {
+    carray_prepend(array_ptr, j);
+  }
+
+  printf("array_ptr size: %d\n", carray_size(array_ptr));
+  printf("array_ptr capacity: %d\n", carray_capacity(array_ptr));
+
+  for (int j = 0; j < 49; ++j)
+  {
+    carray_pop(array_ptr);
+  }
+
+  printf("array_ptr size: %d\n", carray_size(array_ptr));
+  printf("array_ptr capacity: %d\n", carray_capacity(array_ptr));
+
+  free(array_ptr->data);
+  free(array_ptr);
 
   return 0;
 }

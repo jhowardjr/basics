@@ -43,9 +43,24 @@ int carray_increase_capacity(int capacity)
   return allocated_capacity;
 }
 
+int carray_decrease_capacity(int capacity)
+{
+  int allocated_capacity = capacity;
+
+  if (capacity > kMinCapacity * kGrowthFactor)
+  {
+    allocated_capacity /= kGrowthFactor;
+  }
+
+  return allocated_capacity;
+}
+
 void carray_push(CArray *array_ptr, int item)
 {
+  resize(array_ptr);
+
   *(array_ptr->data + array_ptr->size) = item;
+
   array_ptr->size++;
 }
 
@@ -56,7 +71,7 @@ int carray_get(CArray *array_ptr, int index)
 
 void carray_insert(CArray *array_ptr, int index, int item)
 {
-  // TODO: RESIZE ARRAY IF NECCESSARY
+  resize(array_ptr);
 
   for (int i = array_ptr->size; i > index; --i)
   {
@@ -75,6 +90,13 @@ void carray_prepend(CArray *array_ptr, int item)
 
 int carray_pop(CArray *array_ptr)
 {
+  if (array_ptr->size == 0)
+  {
+    exit(EXIT_FAILURE);
+  }
+
+  resize(array_ptr);
+
   int value = *(array_ptr->data + array_ptr->size - 1);
   array_ptr->size--;
   return value;
@@ -82,6 +104,7 @@ int carray_pop(CArray *array_ptr)
 
 void carray_delete(CArray *array_ptr, int index)
 {
+  resize(array_ptr);
 
   for (size_t i = index; i < array_ptr->size; ++i)
   {
@@ -93,6 +116,8 @@ void carray_delete(CArray *array_ptr, int index)
 
 void carray_remove(CArray *array_ptr, int item)
 {
+  resize(array_ptr);
+
   int i = 0;
   for (int j = 0; j < array_ptr->size; j++)
   {
@@ -122,4 +147,29 @@ int carray_find(CArray *array_ptr, int item)
   }
 
   return index;
+}
+
+void resize(CArray *array_ptr)
+{
+  int current_capacity = array_ptr->capacity;
+  int new_capacity = current_capacity;
+  
+  if (current_capacity == array_ptr->size)
+  {
+    new_capacity = carray_increase_capacity(current_capacity);
+  }
+  else if (array_ptr->size == (current_capacity / 4))
+  {
+    new_capacity = carray_decrease_capacity(current_capacity);
+  }
+
+  int *new_data = (int *)malloc(sizeof(int) * new_capacity);
+
+  for (int i = 0; i < current_capacity; ++i)
+  {
+    *(new_data + i) = *(array_ptr->data + i);
+  }
+
+  array_ptr->data = new_data;
+  array_ptr->capacity = new_capacity;
 }
