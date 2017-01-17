@@ -5,7 +5,7 @@ CArray *carray_new(int capacity)
   /*
   *  allocates size bytes and returns a pointer to the allocated memory
   */
-  CArray *array_ptr = malloc(sizeof(CArray));
+  CArray *array_ptr = (CArray *) malloc(sizeof(CArray));
 
   array_ptr->size = 0;
 

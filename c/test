@@ -1,0 +1,6 @@
+#!/bin/sh
+
+g++ -isystem ${GTEST_DIR}/include -pthread gtest_main.cc array_unittest.cc libgtest.a -o gtest_main.o
+
+./gtest_main.o
+
