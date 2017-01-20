@@ -50,7 +50,7 @@ void CPPArray::insert(int index, int item)
 void CPPArray::deleteAt(int index)
 {
   resize();
-  for (size_t i = index; i < size_; ++i)
+  for (int i = index; i < size_; ++i)
   {
     data_[i] = data_[i + 1];
   }
@@ -61,7 +61,7 @@ void CPPArray::remove(int item)
 {
   resize();
   int i = 0;
-  for (size_t j = 0; j < size_; ++j)
+  for (int j = 0; j < size_; ++j)
   {
     if (data_[j] != item)
     {
@@ -98,7 +98,7 @@ bool CPPArray::is_empty() { return size_ == 0; }
 int CPPArray::find(int item)
 {
   int index = -1;
-  for (size_t i = 0; i < size_; ++i)
+  for (int i = 0; i < size_; ++i)
   {
     if (data_[i] == item)
     {
